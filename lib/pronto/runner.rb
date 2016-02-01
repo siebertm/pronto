@@ -22,6 +22,7 @@ module Pronto
 
     def ruby_executable?(path)
       return false if File.directory?(path)
+      puts [Encoding.default_external, path].inspect
       line = File.open(path, &:readline)
       line =~ /#!.*ruby/
     rescue ArgumentError, EOFError
